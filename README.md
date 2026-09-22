@@ -75,3 +75,8 @@ Folder dist dihasilkan otomatis saat build dan tidak disertakan sebagai duplikas
 
 ## Pemeriksaan
 Build dan sintaks JavaScript berhasil. Data identitas, persentase, tautan, aset, dan font lokal diperiksa. Flashcard, pemeriksa palindrom, pilihan acak, dan fokus dialog lolos simulasi DOM. Tampilan browser langsung serta deployment Vercel belum diuji.
+
+
+## Revisi tampilan Feli
+Identitas tersusun vertikal seperti referensi: foto, nama, kelas, absen, sekolah, jurusan. Teks dan judul menggunakan font tebal lokal. Tema catatan perjalanan gunung pink dilengkapi awan, burung, bunga bergerak dan tombol jeda animasi. Preferensi reduced motion perangkat dihormati.
+Kontak sudah diisi: felimaulidina02@gmail.com dan Instagram @fell.and.fly_. Ubah di config.js. Pengaturan foto tetap PORTFOLIO_PROFILE.imageUrl. Foto pada contoh tata letak tidak dipakai sebagai foto Feli.

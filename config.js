@@ -1,7 +1,7 @@
 // Isi dengan kontak asli. Kosong = tampil "Belum tersedia".
 window.PORTFOLIO_CONTACT = {
-  email: "", // Contoh format: nama@domain.com
-  instagram: "" // Username saja, tanpa @ dan tanpa URL.
+  email: "felimaulidina02@gmail.com", // Contoh format: nama@domain.com
+  instagram: "fell.and.fly_" // Username saja, tanpa @ dan tanpa URL.
 };
 
 // FOTO PROFIL: tempel URL gambar langsung di antara tanda kutip.

@@ -22,3 +22,5 @@
   photo.src=files[next++];
  }
 })();
+
+(() => { const button = document.querySelector('.motion-toggle'); if (!button) return; button.hidden=false; button.addEventListener('click', () => { const paused=document.body.classList.toggle('is-paused'); button.setAttribute('aria-pressed', String(paused)); button.textContent=paused ? 'Putar animasi ▷' : 'Jeda animasi Ⅱ'; }); })();
