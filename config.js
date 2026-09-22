@@ -10,7 +10,7 @@ window.PORTFOLIO_CONTACT = {
 // Kosong atau gagal dimuat: coba assets/fotoprofil.png, .jpg, .jpeg,
 // lalu tampilkan inisial FA jika semua tidak tersedia.
 window.PORTFOLIO_PROFILE = {
-  imageUrl: "",
+  imageUrl: "https://files.catbox.moe/4nhbsx.jpg",
   imageAlt: "Potret Feli Maulidina Azzahira",
   objectPosition: "center" // Misalnya "center top" untuk wajah di atas.
 };
