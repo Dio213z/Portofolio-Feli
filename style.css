@@ -30,3 +30,60 @@
 @media(max-width:760px){.identity-top{padding-bottom:78px}.frame-lion{width:78px;right:0;bottom:0}.closing-visual{padding-bottom:125px}.closing-lion{width:120px;right:0;bottom:0}.closing-seal{bottom:49px}.angpao-ornament{bottom:42px}}
 .identity-top{padding-bottom:95px}.gallery-intro .lantern-one{left:auto;right:24%}
 @media(max-width:760px){.identity-top{padding-bottom:90px}}
+
+/* === Barongsai friends: three distinct designs in a single lightweight atlas === */
+.lion-sprite{display:block;position:relative;aspect-ratio:1;width:100px;overflow:hidden;pointer-events:none;user-select:none;flex-shrink:0}
+.lion-sprite>img{position:absolute;top:0;left:0;width:300%;height:100%;max-width:none;object-fit:fill;display:block}
+.sprite-white>img{left:-100%}.sprite-walker>img{left:-200%}
+.frame-friend{position:absolute;right:0;bottom:0;width:80px;animation:friend-wave 5s ease-in-out infinite}
+.cta-friend{width:82px;animation:friend-wave 6s ease-in-out -2s infinite}
+.gallery-friend{position:absolute;right:15px;bottom:8px;width:190px;z-index:-1;animation:friend-wave 6s ease-in-out infinite}
+/* Frames are measured from the actual image, including after config.js changes. */
+.photo-circle{width:min(100%,calc(var(--image-ratio,1.6)*460px + 16px));min-height:0;margin-inline:auto}
+.photo-circle img,.closing-photo img{display:block;width:100%;height:auto;aspect-ratio:auto;object-fit:contain}
+.project-visual{aspect-ratio:auto;background:var(--pink-soft)}
+.project-visual img{width:100%;height:auto;aspect-ratio:auto;object-fit:contain;background:transparent}
+.project:hover .project-visual img{transform:none}
+.projects{align-items:start}.project-body p{min-height:0}
+.achievement-image{min-height:0}.achievement-image img{width:100%;height:auto;object-fit:contain}
+/* Two different little lions carry the complete photograph on a gold palanquin. */
+.closing-visual{width:100%;max-width:480px;padding:18px 8px 36px;margin:auto;min-width:0}
+.photo-procession{width:min(100%,calc(var(--image-ratio,1.6)*500px + 24px));margin-inline:auto;animation:carry-photo 6s ease-in-out infinite;transform-origin:50% 80%}
+.closing-photo{width:100%;transform:none;padding:10px;border:2px solid var(--gold);border-radius:16px;background:var(--surface);box-shadow:0 12px 28px #a34e6214}
+.closing-photo:before,.closing-photo:after{content:'✿';position:absolute;bottom:-14px;width:25px;height:25px;border-radius:50%;background:var(--bg);color:var(--accent);text-align:center;line-height:23px;border:1px solid var(--gold);font-size:16px;z-index:3}
+.closing-photo:before{left:12%}.closing-photo:after{right:12%}
+.carrier-stage{position:relative;width:100%;height:clamp(110px,12vw,145px);margin-top:1px}
+.carrier-beam{position:absolute;top:0;left:7%;right:7%;height:7px;border-radius:8px;background:linear-gradient(#f9dda5,#c39a58);box-shadow:0 2px 0 #a67643}
+.carrier-pole{position:absolute;top:3px;height:36px;width:4px;border-radius:4px;background:linear-gradient(90deg,#e9c081,#b88740);z-index:1}
+.pole-left{left:10%}.pole-right{right:10%}.pole-left-inner{left:33%}.pole-right-inner{right:33%}
+.carrier{position:absolute;top:10px;width:29%;max-width:128px;z-index:2;animation:carrier-step 1.5s ease-in-out infinite}
+.carrier-left{left:7%;transform-origin:50% 90%}.carrier-right{right:7%;animation-delay:-.75s;transform-origin:50% 90%}
+.carry-knot{position:absolute;top:10px;left:calc(50% - 9px);color:var(--accent);font-size:23px}
+.carry-knot:after{content:'';display:block;width:10px;height:30px;margin:auto;background:repeating-linear-gradient(90deg,#d6839b 0 1px,transparent 1px 3px);transform-origin:top;animation:sway 3s ease-in-out infinite}
+.carrier-shadow{position:absolute;bottom:2px;width:24%;height:9px;border-radius:50%;background:#b4798d12}.shadow-left{left:9%}.shadow-right{right:9%}
+.closing-seal{position:static;display:block;text-align:center;margin-top:9px;font-size:8px;letter-spacing:3px;color:var(--accent)}
+.closing-copy h2{font-size:clamp(27px,2.7vw,36px)}
+/* A small dedicated walking lane at the screen's lower edge. */
+body{padding-bottom:62px}html{scroll-padding-bottom:85px}
+.edge-walk{position:fixed;inset:auto 0 0;height:62px;background:var(--bg);border-top:1px solid var(--line);pointer-events:none;z-index:25;overflow:hidden;box-shadow:0 -4px 15px #8d4b6010}
+.edge-traveler{position:absolute;left:8px;bottom:2px;width:58px;height:58px;animation:edge-stroll 32s linear infinite}
+.walker-facing{width:100%;height:100%;animation:walker-turn 32s steps(1,end) infinite}
+.walking-friend{width:100%;height:100%;animation:walking-step .7s ease-in-out infinite}
+.edge-flower{position:absolute;bottom:6px;color:var(--accent);opacity:.2;font-size:18px}.flower-left{left:7px}.flower-right{right:7px}
+body:has(dialog[open]) .edge-walk{visibility:hidden}
+@keyframes carry-photo{0%,100%{transform:translateY(0) rotate(-.6deg)}50%{transform:translateY(-7px) rotate(.6deg)}}
+@keyframes carrier-step{0%,100%{transform:translateY(0) rotate(-1deg)}50%{transform:translateY(2px) rotate(1deg)}}
+@keyframes friend-wave{0%,100%{transform:rotate(-2deg) translateY(0)}50%{transform:rotate(2deg) translateY(-5px)}}
+@keyframes edge-stroll{0%,100%{transform:translateX(0)}50%{transform:translateX(calc(100vw - 76px))}}
+@keyframes walker-turn{0%,100%{transform:scaleX(1)}50%{transform:scaleX(-1)}}
+@keyframes walking-step{0%,100%{transform:translateY(0) rotate(-1deg)}50%{transform:translateY(-3px) rotate(1.5deg)}}
+@media(max-width:1000px){.gallery-friend{width:165px}}
+@media(max-width:760px){
+ .frame-friend{width:76px}.cta-friend{width:62px}.gallery-friend{position:relative;right:auto;bottom:auto;width:145px;margin:0 auto 15px}
+ .closing-visual{width:100%;max-width:430px;padding:14px 6px 15px}.photo-procession{width:min(100%,calc(var(--image-ratio,1.6)*440px + 24px))}
+ .carrier-stage{height:clamp(96px,30vw,137px)}.closing-copy h2{font-size:28px}
+ .project-visual,.project-visual img{aspect-ratio:auto;height:auto}.project-visual img{background:transparent}
+ body{padding-bottom:52px}.edge-walk{height:52px}.edge-traveler{width:47px;height:47px;bottom:2px}.edge-flower{font-size:15px}
+ @keyframes edge-stroll{0%,100%{transform:translateX(0)}50%{transform:translateX(calc(100vw - 65px))}}
+}
+@media(prefers-reduced-motion:reduce){.edge-walk{display:none}body{padding-bottom:0}.photo-procession,.carrier,.lion-sprite{animation:none!important;transform:none}}

@@ -27,7 +27,20 @@
         img.parentElement.append(fallback);
       }
     };
-    img.onload = () => { img.hidden = false; if (initials) initials.hidden = true; };
+    img.onload = () => {
+      img.hidden = false;
+      if (initials) initials.hidden = true;
+      if (img.hasAttribute('data-photo') && img.naturalWidth && img.naturalHeight) {
+        const ratio = img.naturalWidth / img.naturalHeight;
+        const frame = img.closest('.photo-frame');
+        if (frame) frame.style.setProperty('--image-ratio', ratio);
+        const procession = img.closest('.photo-procession');
+        if (procession) procession.style.setProperty('--image-ratio', ratio);
+        // Dimensi HTML ikut foto baru; CSS tidak memaksa rasio foto lama.
+        img.width = img.naturalWidth;
+        img.height = img.naturalHeight;
+      }
+    };
     img.onerror = fail;
     if (src) img.src = src; else fail();
   });

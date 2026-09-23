@@ -20,6 +20,7 @@
     const frame = document.createElement('div'); frame.className = 'achievement-image';
     const img = new Image(); img.loading = 'lazy'; img.decoding = 'async'; img.alt = typeof entry.alt === 'string' ? entry.alt : `Dokumentasi ${title} — Feli`;
     img.onerror = () => { img.hidden = true; const text = document.createElement('span'); text.className = 'photo-unavailable'; text.textContent = 'Foto tidak dapat dimuat'; frame.append(text); button.disabled = true; };
+    img.onload = () => { frame.style.setProperty('--image-ratio', img.naturalWidth / img.naturalHeight); };
     img.src = url; frame.append(img);
     const caption = document.createElement('div'); caption.className = 'achievement-caption';
     const heading = document.createElement('h2'); heading.textContent = title;

@@ -34,7 +34,7 @@ photos: {
 - Ganti dengan URL gambar publik langsung, misalnya `https://example.com/foto.jpg`, atau path lokal seperti `assets/foto-baru.jpg`.
 - Jangan menempel tautan album/login atau format Markdown `[teks](url)`.
 - Penulisan huruf besar/kecil nama file harus sama persis.
-- Untuk mengganti maskot, edit `artwork.mascot` di file yang sama.
+- Untuk mengganti maskot utama, edit `artwork.mascot`. Tiga teman Barongsai memakai `artwork.friends`, berupa atlas transparan tiga kolom (pink berpita, putih berhias jade, dan bayi Barongsai berjalan).
 - URL foto tidak ditulis di HTML. `experience.js` menghubungkan atribut `data-photo`/`data-art` ke config.
 - Foto Feli memakai file asli yang sudah ada dalam ZIP, tanpa edit wajah, pakaian, pose, atau isi. Foto penutup menggunakan foto asli yang sama karena hanya satu foto pribadi lokal tersedia.
 - Thumbnail menggunakan tiga referensi Barongsai yang diberikan. Foto pribadi memakai `object-fit: contain`/tinggi otomatis sehingga tetap utuh.
@@ -86,6 +86,7 @@ portfolio-barongsai-pink/
 │   ├── barongsai-2.jpg
 │   ├── barongsai-3.jpg
 │   ├── barongsai-mascot.png
+│   ├── barongsai-friends.png
 │   ├── favicon.svg
 │   └── fonts/   (font lokal dan lisensinya)
 ├── asset/
@@ -128,3 +129,18 @@ Untuk mengecek build lokal, jalankan perintah build tersebut. Folder `dist` akan
 Diuji dengan Chromium headless pada lebar 320, 390, 768, 1024, dan 1440 px untuk kedua halaman: tidak ditemukan overflow horizontal, gambar bawaan gagal dimuat, atau error console. Menu mobile, tema tersimpan, jeda animasi, preferensi reduced motion, seluruh demo, penggantian lima foto melalui config, penambahan galeri dan lightbox, serta pembukaan `file://` telah diperiksa. Build Node berhasil. File foto pribadi diverifikasi identik dengan file dari ZIP asli.
 
 URL eksternal yang kamu masukkan kemudian tetap bergantung pada ketersediaan server gambar tersebut. Gunakan aset lokal untuk pemakaian offline.
+
+
+## Revisi: foto diusung Barongsai & bingkai otomatis
+
+- Teks penutup mengikuti kiriman terbaru pengguna, termasuk tiga kalimat penutup.
+- Empat desain karakter berbeda: maskot hero, Barongsai pink berpita, Barongsai putih dengan hiasan jade, dan bayi Barongsai dengan lonceng.
+- Foto penutup dibawa dua karakter berbeda di atas penyangga emas. Gerakan foto dan pengusung dibuat lembut; foto asli tidak diubah.
+- Bayi Barongsai berjalan bolak-balik di jalur khusus pada tepi bawah layar. Jalur tidak menerima klik, menghilang saat dialog dibuka, dan otomatis disembunyikan pada preferensi reduced motion.
+- Bingkai menyesuaikan proporsi asli foto portrait, landscape, atau persegi. Tidak ada ukuran rasio foto yang dipaksa. JavaScript membaca `naturalWidth` dan `naturalHeight` setelah foto berhasil dimuat, lalu memperbarui ukuran bingkai. Foto tinggi dibatasi lebar tampilannya agar tetap nyaman dibaca, tanpa crop.
+- Thumbnail dan galeri memakai tinggi alami, sehingga tinggi kartu dapat berbeda sesuai foto yang dipasang. Tidak ada letterbox atau pemotongan foto untuk memaksakan kartu sama tinggi.
+- Tombol Jeda animasi juga menjeda pengusung foto dan Barongsai di tepi layar.
+
+Aset tambahan `assets/barongsai-friends.png` dibuat dengan imagegen bawaan. Ringkasan prompt: atlas transparan 3 kolom berisi tiga karakter Barongsai 3D fluffy yang berbeda, dua karakter mengangkat tangan sebagai pengusung, dan satu bayi Barongsai berjalan. Atlas ditampilkan per karakter menggunakan CSS; foto Feli tidak pernah digabung atau diedit ke gambar AI.
+
+Pemeriksaan revisi: kedua halaman lolos pada lebar 320, 390, 768, dan 1440 px. Penggantian lima foto diuji dengan tiga rasio asli (portrait, persegi, landscape); seluruh bingkai mengikuti ukuran dan tidak memotong foto. Jalur Barongsai tetap berada dalam layar. Jeda/resume, dialog, dan reduced motion lolos tanpa error console.

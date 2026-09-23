@@ -16,7 +16,10 @@ const portfolioConfig = {
     closing: "Feli Maulidina Azzahira — catatan awal perjalananku di RPL"
   },
   // Dekorasi juga dapat diganti di sini.
-  artwork: { mascot: "assets/barongsai-mascot.png" },
+  artwork: {
+    mascot: "assets/barongsai-mascot.png", // maskot utama hero
+    friends: "assets/barongsai-friends.png" // tiga karakter berbeda, atlas 3 kolom
+  },
   contact: {
     email: "felimaulidina02@gmail.com",
     instagram: "fell.and.fly_"
