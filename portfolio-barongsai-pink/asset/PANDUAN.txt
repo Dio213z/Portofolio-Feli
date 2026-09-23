@@ -1,0 +1,5 @@
+FOLDER FOTO PRESTASI
+Taruh foto atau sertifikat asli di folder ini, misalnya prestasi1.jpg.
+Tambahkan entri di portfolioConfig.achievements pada config.js:
+{ title: "Sertifikat pertamaku", url: "asset/prestasi1.jpg", alt: "Sertifikat Feli" }
+Semua URL diatur di config.js. Tidak perlu mengubah HTML atau menjalankan scan gambar.
