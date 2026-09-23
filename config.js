@@ -8,7 +8,7 @@ const portfolioConfig = {
     portfolio1: "assets/barongsai-1.jpg",
     portfolio2: "assets/barongsai-2.jpg",
     portfolio3: "assets/barongsai-3.jpg",
-    closing: "assets/IMG_20260922_170446_140.jpg"
+    closing: "https://files.catbox.moe/0anopu.jpg"
   },
   // Foto asli dari ZIP dipakai utuh; tidak mengubah wajah, pakaian, atau pose.
   photoAlt: {
