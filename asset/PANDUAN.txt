@@ -1,22 +1,5 @@
 FOLDER FOTO PRESTASI
-
-Letakkan gambar asli di folder asset ini (tanpa huruf s).
-Contoh:
-prestasi1.png
-prestasi2.jpg
-prestasi3.png
-prestasi4.jpg
-
-Gunakan nama prestasi + nomor mulai 1. Format PNG, JPG, atau JPEG.
-Gunakan satu gambar untuk setiap nomor. Disarankan nama huruf kecil.
-Jangan membuat subfolder. Jangan mengubah ekstensi saja: file harus benar-benar gambar.
-
-Deploy Vercel: upload/commit gambar bersama website ke GitHub.
-Build otomatis membaca seluruh file; nomor boleh melompat dan tidak dibatasi.
-
-Buka index.html langsung / GitHub Pages tanpa build:
-Nomor harus berurutan mulai 1. Pencarian berhenti di nomor pertama yang kosong.
-Untuk nomor yang melompat, jalankan node scripts/build-prestasi.mjs lalu gunakan isi dist.
-
-assets (dengan s) tetap menyimpan favicon / foto profil lama.
-Klik gambar di halaman prestasi untuk memperbesar.
+Taruh foto atau sertifikat asli di folder ini, misalnya prestasi1.jpg.
+Tambahkan entri di portfolioConfig.achievements pada config.js:
+{ title: "Sertifikat pertamaku", url: "asset/prestasi1.jpg", alt: "Sertifikat Feli" }
+Semua URL diatur di config.js. Tidak perlu mengubah HTML atau menjalankan scan gambar.

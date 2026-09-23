@@ -1,82 +1,130 @@
-# Catatan Feli — Feli Maulidina Azzahira
+# Feli — Pink Barongsai
 
-Paket lengkap portofolio HTML, CSS, JavaScript dengan tema gunung sederhana dan soft pink. Termasuk font lokal, foto profil melalui config.js, halaman prestasi, tiga demo berbeda, dan konfigurasi Vercel. Tidak membutuhkan paket pembaruan, npm install, atau CDN.
+Redesign dari **Portofolio-Feli-main**, tetap menggunakan HTML, CSS, dan JavaScript murni. Identitas, cerita, pendidikan, keterampilan, kontak, dan halaman prestasi dipertahankan. Tiga demo sebelumnya diganti sesuai permintaan dengan Sakura Focus, Angpao Goal, dan Festival Memory.
 
-## Data pemilik
-- Nama: Feli Maulidina Azzahira
-- Kelas: X RPL 3 · Absen: 19
-- SD: SDN Kraton
-- SMP: SMP 2 Krian
-- SMK: SMK Krian 1
-- HTML & CSS 75%, JavaScript 70%, Python 70%, Java 70%.
+## 1. Cara menjalankan
 
-Persentase kemampuan berdasarkan penilaian diri sesuai formulir. Referensi yang diberikan, https://portofolio-nadyafirly2.netlify.app/, tidak dapat diakses saat pembuatan. Desain ini mengikuti arahan soft pink dan gunung sederhana, bukan salinan terverifikasi dari referensi.
+Extract ZIP, lalu buka `index.html` dengan Chrome, Edge, Firefox, atau Safari versi modern. Tidak perlu npm install, node_modules, API key, atau koneksi internet untuk aset bawaan.
 
-## Menjalankan
-Ekstrak ZIP ke folder baru lalu buka index.html pada browser modern. Alternatif: jalankan `python3 -m http.server 8000` dari folder ini, lalu buka http://localhost:8000.
+Untuk server lokal, jalankan dari folder project:
 
-## Foto profil di config.js
-Isi bagian berikut yang sudah tersedia:
-
-```js
-window.PORTFOLIO_PROFILE = {
-  imageUrl: "https://domain-kamu.com/foto-feli.jpg",
-  imageAlt: "Foto Feli Maulidina Azzahira",
-  objectPosition: "center"
-};
+```sh
+python -m http.server 8000
 ```
 
-Ganti contoh dengan link gambar asli yang dapat dibuka publik. Pakai URL gambar langsung (disarankan HTTPS), bukan halaman album, pratinjau, atau login. Foto eksternal memerlukan internet dan izin penyedia gambar untuk ditampilkan. `objectPosition: "center top"` dapat dipakai jika wajah berada lebih atas.
+Buka `http://localhost:8000`. Bisa juga menggunakan VS Code Live Server. Penyimpanan Angpao Goal, tema, dan preferensi animasi mengikuti browser serta alamat tempat situs dibuka.
 
-Boleh memakai path lokal, misalnya `assets/foto-feli.jpg`. Jika imageUrl kosong/gagal, situs mencoba assets/fotoprofil.png, .jpg, lalu .jpeg. Jika tidak ada, inisial FA tetap tampil. Jangan mengubah nama ekstensi berkas yang sebenarnya bukan gambar.
+## 2. Ganti seluruh foto melalui config.js
 
-## Kontak
-Isi email dan username Instagram tanpa @ pada PORTFOLIO_CONTACT di config.js. Saat kosong ditampilkan “Belum tersedia”. Kontak tidak dibuat-buat. Tidak ada form yang berpura-pura mengirim pesan.
+Cari komentar **GANTI URL FOTO DI BAGIAN INI**. Ganti nilai di dalam tanda kutip:
 
-## Halaman prestasi
-Tombol Lihat prestasi Feli ada setelah daftar proyek. Masukkan gambar ke folder **asset** (tanpa s) dengan nama:
-- prestasi1.png
-- prestasi2.jpg
-- prestasi3.jpeg
-- dan seterusnya, satu gambar per nomor.
+```js
+photos: {
+  profile: "assets/IMG_20260922_170446_140.jpg",
+  portfolio1: "assets/barongsai-1.jpg",
+  portfolio2: "assets/barongsai-2.jpg",
+  portfolio3: "assets/barongsai-3.jpg",
+  closing: "assets/IMG_20260922_170446_140.jpg"
+}
+```
 
-Saat build Vercel, daftar gambar dibuat otomatis dan diurutkan numerik. Nomor boleh melompat; tidak ada batas nomor tetap. Upload gambar ke GitHub dan tunggu deployment selesai.
+- `profile`: foto utama pada kartu identitas.
+- `portfolio1`–`portfolio3`: thumbnail tiga demo.
+- `closing`: foto penutup.
+- Ganti dengan URL gambar publik langsung, misalnya `https://example.com/foto.jpg`, atau path lokal seperti `assets/foto-baru.jpg`.
+- Jangan menempel tautan album/login atau format Markdown `[teks](url)`.
+- Penulisan huruf besar/kecil nama file harus sama persis.
+- Untuk mengganti maskot, edit `artwork.mascot` di file yang sama.
+- URL foto tidak ditulis di HTML. `experience.js` menghubungkan atribut `data-photo`/`data-art` ke config.
+- Foto Feli memakai file asli yang sudah ada dalam ZIP, tanpa edit wajah, pakaian, pose, atau isi. Foto penutup menggunakan foto asli yang sama karena hanya satu foto pribadi lokal tersedia.
+- Thumbnail menggunakan tiga referensi Barongsai yang diberikan. Foto pribadi memakai `object-fit: contain`/tinggi otomatis sehingga tetap utuh.
 
-Saat membuka HTML langsung atau hosting tanpa build, nomor harus berurutan mulai 1. Pencarian berhenti di nomor pertama yang kosong. Untuk nomor yang melompat, jalankan `node scripts/build-prestasi.mjs` lalu buka dist/prestasi.html.
+### Galeri prestasi
 
-Folder **assets** untuk font/latar/profil/favicon. Folder **asset** untuk gambar prestasi. Klik gambar untuk memperbesar; tutup menggunakan tombol × atau Escape.
+ZIP awal belum berisi foto sertifikat/prestasi. Halaman menampilkan ruang kosong yang rapi, bukan prestasi rekaan. Taruh foto di folder `asset/`, lalu tambah ke `achievements` di `config.js`:
 
-## Proyek yang dapat dicoba
-1. Kartu Pintar: lima flashcard dasar pemrograman dengan penjelasan, tombol balik, dan navigasi.
-2. Cermin Kata: pemeriksa palindrom yang mengabaikan huruf besar, spasi, dan tanda baca.
-3. Pilih Dulu: memilih acak dari 2–20 kegiatan berbeda; duplikat dan baris kosong diabaikan.
+```js
+achievements: [
+  { title: "Sertifikat pertamaku", url: "asset/prestasi1.jpg", alt: "Sertifikat Feli" },
+  { title: "Kegiatan sekolah", url: "https://example.com/kegiatan.jpg", alt: "Dokumentasi kegiatan sekolah" }
+]
+```
 
-Semua merupakan contoh demo bawaan, bukan klaim karya terdahulu atau prestasi Feli. Data demo direset saat dibuka ulang dan tidak dikirim ke server.
+Semua URL galeri juga diatur di config. Tidak perlu mengedit HTML. Mekanisme tebakan nama file lama diganti daftar eksplisit agar tidak meminta file yang tidak ada. Klik foto untuk memperbesar; Escape menutup pratinjau.
 
-## Upload GitHub & deploy Vercel
-1. Upload seluruh isi hasil ekstrak ke akar repository GitHub. Pastikan index.html berada di akar repo, bukan masih dalam ZIP.
-2. Import repository ke Vercel.
-3. Framework Preset: Other. Root Directory: akar repository.
-4. Build Command: `node scripts/build-prestasi.mjs`.
-5. Output Directory: `dist`.
-6. Deploy. Pengaturan sudah dicantumkan di vercel.json. Tidak membutuhkan environment variables atau npm install; build memerlukan Node.js 18+.
+## 3. Bagian yang bisa diedit
 
-Jika memakai project Vercel lama, pastikan override build/output sesuai. Paket belum dipublikasikan ke akun pengguna. Vercel memberikan alamat setelah deploy berhasil.
+| File | Fungsi |
+| --- | --- |
+| `config.js` | Semua URL foto, maskot, daftar prestasi, dan kontak |
+| `index.html` | Teks identitas, cerita, sekolah, persentase kemampuan, deskripsi proyek, penutup |
+| `prestasi.html` | Teks judul dan pengantar galeri |
+| `style.css` | Warna pada `:root`, layout, frame, responsive, animasi |
+| `script.js` | Logika ketiga demo |
+| `experience.js` | Penghubung foto, animasi, scroll reveal dan parallax |
+| `common.js` | Menu hamburger, tema pagi/malam, kontak dan tahun footer |
+| `prestasi.js` | Kartu galeri dan pratinjau |
 
-## Tampilan
-Mode Pink pagi / Pink malam tersimpan di browser. Navigasi horizontal di desktop, menu toggle di mobile. Judul memakai DejaVu Serif dan isi memakai DejaVu Sans; keduanya disertakan bersama lisensi di assets/fonts. Transisi ringan menghormati pengaturan reduced motion.
+## 4. Struktur folder
 
-Latar assets/gunung-pink.png dibuat dengan alat ImageGen bawaan. Brief: lanskap gunung berlapis dengan langit blush pink, siluet mauve, kabut lembut dan cahaya pagi, tanpa tulisan/manusia/bangunan. Gambar bersifat ilustratif, bukan dokumentasi gunung tertentu.
+```text
+portfolio-barongsai-pink/
+├── index.html
+├── prestasi.html
+├── config.js
+├── common.js
+├── experience.js
+├── script.js
+├── prestasi.js
+├── style.css
+├── vercel.json
+├── README.md
+├── .gitignore
+├── assets/
+│   ├── IMG_20260922_170446_140.jpg
+│   ├── barongsai-1.jpg
+│   ├── barongsai-2.jpg
+│   ├── barongsai-3.jpg
+│   ├── barongsai-mascot.png
+│   ├── favicon.svg
+│   └── fonts/   (font lokal dan lisensinya)
+├── asset/
+│   └── PANDUAN.txt
+└── scripts/
+    └── build-prestasi.mjs
+```
 
-## Struktur file
-index.html, prestasi.html, style.css, config.js, common.js, experience.js, script.js, prestasi.js, prestasi-data.js, vercel.json, scripts/build-prestasi.mjs, assets/, asset/.
+Folder `asset` untuk dokumentasi dan `assets` untuk aset desain sengaja dipertahankan dari struktur awal. Tidak ada `.git`, node_modules, rahasia, atau hasil build sementara dalam ZIP.
 
-Folder dist dihasilkan otomatis saat build dan tidak disertakan sebagai duplikasi sumber.
+## 5. Update GitHub dan deploy
 
-## Pemeriksaan
-Build dan sintaks JavaScript berhasil. Data identitas, persentase, tautan, aset, dan font lokal diperiksa. Flashcard, pemeriksa palindrom, pilihan acak, dan fokus dialog lolos simulasi DOM. Tampilan browser langsung serta deployment Vercel belum diuji.
+**Update repository:** extract ZIP, masuk ke folder `portfolio-barongsai-pink`, lalu unggah **isinya** ke root repository yang lama. Pastikan `index.html` berada di root, bukan di folder bertingkat. Hapus file tema gunung lama dan `prestasi-data.js` jika masih tersisa di repository; tidak digunakan lagi.
 
+**GitHub Pages:** pilih branch repository dan folder root pada pengaturan Pages. Semua path relatif sehingga bisa dipakai pada alamat repository bersubfolder. Website langsung berjalan tanpa build.
 
-## Revisi tampilan Feli
-Identitas tersusun vertikal seperti referensi: foto, nama, kelas, absen, sekolah, jurusan. Teks dan judul menggunakan font tebal lokal. Tema catatan perjalanan gunung pink dilengkapi awan, burung, bunga bergerak dan tombol jeda animasi. Preferensi reduced motion perangkat dihormati.
-Kontak sudah diisi: felimaulidina02@gmail.com dan Instagram @fell.and.fly_. Ubah di config.js. Pengaturan foto tetap PORTFOLIO_PROFILE.imageUrl. Foto pada contoh tata letak tidak dipakai sebagai foto Feli.
+**Vercel:** import repository dan gunakan framework **Other**. `vercel.json` sudah mempertahankan alur build project asli:
+
+- Build: `node scripts/build-prestasi.mjs`
+- Output: `dist`
+- Install command: kosong; tanpa dependensi npm.
+
+Untuk mengecek build lokal, jalankan perintah build tersebut. Folder `dist` akan dibuat otomatis; jangan masukkan ke ZIP atau commit. Isi `dist` juga bisa dipasang di static hosting lain.
+
+## Interaksi dan animasi
+
+- **Sakura Focus:** sesi 25 menit, jeda 5 menit, dan mode coba 1 menit. Mulai, jeda, lanjutkan, reset. Timer memakai waktu nyata dan dihentikan ketika dialog ditutup.
+- **Angpao Goal:** nama impian, target rupiah, saldo, progres otomatis, hapus catatan. Data tersimpan hanya di browser pengguna. Tidak mengirim data ke server.
+- **Festival Memory:** enam pasangan simbol, kartu diacak, penghitung langkah, tombol mulai ulang.
+- Barongsai menari lembut, lampion bergoyang, awan bergerak, sakura melayang, sparkle, hover, scroll reveal, parallax ringan pada desktop.
+- Tombol **Jeda animasi** menghentikan gerak dekoratif; preferensi disimpan. Pengaturan sistem `prefers-reduced-motion` otomatis dihormati.
+- Jumlah kelopak dibatasi menjadi lima di HP. Animasi memakai transform/opacity; scroll menggunakan satu requestAnimationFrame per pembaruan. Tidak ada library animasi eksternal.
+
+### Aset maskot
+
+`assets/barongsai-mascot.png` dibuat melalui imagegen bawaan untuk dekorasi website. Ringkasan prompt: satu Barongsai China 3D fluffy pink–white, detail emas, mata besar ramah, seluruh tubuh terlihat, latar transparan, tanpa teks dan tanpa orang. Gambar ini hanya dekorasi; foto pribadi tidak diproses dengan AI.
+
+## Pemeriksaan versi ini
+
+Diuji dengan Chromium headless pada lebar 320, 390, 768, 1024, dan 1440 px untuk kedua halaman: tidak ditemukan overflow horizontal, gambar bawaan gagal dimuat, atau error console. Menu mobile, tema tersimpan, jeda animasi, preferensi reduced motion, seluruh demo, penggantian lima foto melalui config, penambahan galeri dan lightbox, serta pembukaan `file://` telah diperiksa. Build Node berhasil. File foto pribadi diverifikasi identik dengan file dari ZIP asli.
+
+URL eksternal yang kamu masukkan kemudian tetap bergantung pada ketersediaan server gambar tersebut. Gunakan aset lokal untuk pemakaian offline.
