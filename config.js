@@ -6,7 +6,7 @@ const portfolioConfig = {
   photos: {
     hero: "assets/gunung-pink.png", // foto utama pengganti maskot hero
     heroBackground: "assets/gunung-pink.jpg", // background foto tipis halaman utama
-    profile: "assets/IMG_20260922_170446_140.jpg",
+    profile: "https://files.catbox.moe/ozoqvf.jpg",
     portfolio1: "assets/barongsai-1.jpg",
     portfolio2: "assets/barongsai-2.jpg",
     portfolio3: "assets/barongsai-3.jpg",
