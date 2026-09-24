@@ -144,3 +144,8 @@ URL eksternal yang kamu masukkan kemudian tetap bergantung pada ketersediaan ser
 Aset tambahan `assets/barongsai-friends.png` dibuat dengan imagegen bawaan. Ringkasan prompt: atlas transparan 3 kolom berisi tiga karakter Barongsai 3D fluffy yang berbeda, dua karakter mengangkat tangan sebagai pengusung, dan satu bayi Barongsai berjalan. Atlas ditampilkan per karakter menggunakan CSS; foto Feli tidak pernah digabung atau diedit ke gambar AI.
 
 Pemeriksaan revisi: kedua halaman lolos pada lebar 320, 390, 768, dan 1440 px. Penggantian lima foto diuji dengan tiga rasio asli (portrait, persegi, landscape); seluruh bingkai mengikuti ukuran dan tidak memotong foto. Jalur Barongsai tetap berada dalam layar. Jeda/resume, dialog, dan reduced motion lolos tanpa error console.
+
+
+## Foto halaman utama
+
+Hero sekarang memakai foto asli `assets/gunung-pink.png` sebagai pengganti maskot besar. `assets/gunung-pink.jpg` tampil sebagai background tipis, dengan lapisan warna lembut untuk menjaga keterbacaan. Ubah `photos.hero` dan `photos.heroBackground` di `config.js` untuk menggantinya. PNG ditampilkan utuh tanpa crop; JPG background memakai cover. Foto penutup dan semua pengaturan pengguna lainnya dipertahankan dari ZIP terbaru.

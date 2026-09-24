@@ -87,3 +87,16 @@ body:has(dialog[open]) .edge-walk{visibility:hidden}
  @keyframes edge-stroll{0%,100%{transform:translateX(0)}50%{transform:translateX(calc(100vw - 65px))}}
 }
 @media(prefers-reduced-motion:reduce){.edge-walk{display:none}body{padding-bottom:0}.photo-procession,.carrier,.lion-sprite{animation:none!important;transform:none}}
+
+/* Foto hero PNG dan background JPG, diatur terpisah dari config.js. */
+.festival-hero{background:var(--bg)}
+.hero-background-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 40%;opacity:.17;pointer-events:none;z-index:0}
+.hero-background-wash{position:absolute;inset:0;pointer-events:none;z-index:0;background:linear-gradient(90deg,var(--bg) 0%,transparent 80%),linear-gradient(0deg,var(--bg),transparent 40%)}
+body[data-theme=dark] .hero-background-photo{opacity:.11}
+.hero-art{height:auto;min-height:400px;padding:35px 12px 55px;display:flex;align-items:center;justify-content:center}
+.hero-photo-frame{position:relative;width:100%;padding:11px;background:var(--surface);border:1px solid var(--gold);border-radius:18px;box-shadow:0 20px 45px #7e3d571a;animation:hero-photo-float 7s ease-in-out infinite;transform-origin:center}
+.hero-profile-photo{width:100%;height:auto;object-fit:contain;border-radius:10px}
+.hero-sticker{bottom:14px;right:0;z-index:2}
+@keyframes hero-photo-float{0%,100%{transform:translateY(0) rotate(-2deg)}50%{transform:translateY(-7px) rotate(-.5deg)}}
+@media(max-width:760px){.hero-art{height:auto;min-height:0;padding:28px 5px 68px;width:min(460px,96%);margin:10px auto 0}.hero-photo-frame{padding:8px;border-radius:14px}.hero-sticker{bottom:15px;right:0}.hero-background-photo{object-position:55% center;opacity:.13}.hero-background-wash{background:linear-gradient(180deg,var(--bg),transparent 65%,var(--bg))}}
+@media(prefers-reduced-motion:reduce){.hero-photo-frame{animation:none!important;transform:none}}

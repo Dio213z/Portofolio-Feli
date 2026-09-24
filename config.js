@@ -4,6 +4,8 @@
 const portfolioConfig = {
   // GANTI URL FOTO DI BAGIAN INI
   photos: {
+    hero: "assets/gunung-pink.png", // foto utama pengganti maskot hero
+    heroBackground: "assets/gunung-pink.jpg", // background foto tipis halaman utama
     profile: "assets/IMG_20260922_170446_140.jpg",
     portfolio1: "assets/barongsai-1.jpg",
     portfolio2: "assets/barongsai-2.jpg",
