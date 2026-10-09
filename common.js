@@ -16,8 +16,8 @@ function applyTheme(theme){
   const light = theme !== "dark";
   document.body.dataset.theme = light ? "light" : "dark";
   themeButton.setAttribute("aria-pressed", String(light));
-  themeButton.textContent = light ? "☾ Pink malam" : "☀ Pink pagi";
-  themeButton.setAttribute("aria-label", "Pilih tampilan " + (light ? "gelap" : "terang"));
+  themeButton.textContent = light ? "☾ Pink Night" : "☀ Pink Morning";
+  themeButton.setAttribute("aria-label", "Select " + (light ? "dark" : "light") + " theme");
   document.querySelector('meta[name="theme-color"]').content = light ? "#fcf2f5" : "#35252f";
 }
 try { applyTheme(localStorage.getItem("feli-theme")); } catch { applyTheme("light"); }

@@ -1,7 +1,7 @@
 "use strict";
 (() => {
   const config = window.portfolioConfig || {};
-  // URL hanya berasal dari config.js, termasuk gambar dekorasi.
+  // URLs originate solely from config.js, including decorative graphics.
   function safeImageURL(value) {
     if (typeof value !== 'string' || !value.trim()) return '';
     try {
@@ -23,7 +23,7 @@
       if (img.hasAttribute('data-photo') && !initials) {
         const fallback = document.createElement('span');
         fallback.className = 'photo-unavailable';
-        fallback.textContent = '✿ Foto belum tersedia';
+        fallback.textContent = '✿ Photo unavailable';
         img.parentElement.append(fallback);
       }
     };
@@ -36,7 +36,7 @@
         if (frame) frame.style.setProperty('--image-ratio', ratio);
         const procession = img.closest('.photo-procession');
         if (procession) procession.style.setProperty('--image-ratio', ratio);
-        // Dimensi HTML ikut foto baru; CSS tidak memaksa rasio foto lama.
+        // HTML dimensions follow new photo; CSS does not force old photo aspect ratio.
         img.width = img.naturalWidth;
         img.height = img.naturalHeight;
       }
@@ -55,7 +55,7 @@
       button.hidden = false;
       button.disabled = reduced.matches;
       button.setAttribute('aria-pressed', String(paused));
-      button.textContent = reduced.matches ? 'Animasi minimal ✓' : paused ? 'Putar animasi ▷' : 'Jeda animasi Ⅱ';
+      button.textContent = reduced.matches ? 'Minimal animation ✓' : paused ? 'Play animation ▷' : 'Pause animation Ⅱ';
     });
   };
   buttons.forEach(button => button.addEventListener('click', () => {
@@ -78,7 +78,7 @@
     }), { threshold: 0.08 });
     targets.forEach((target, i) => { target.classList.add('reveal'); target.style.setProperty('--reveal-delay', `${i % 3 * 65}ms`); observer.observe(target); });
   }
-  // Satu requestAnimationFrame per scroll, tanpa loop animasi JavaScript permanen.
+  // Single requestAnimationFrame per scroll, no permanent JS animation loop.
   let scheduled = false;
   const hero = document.querySelector('.hero-art');
   const progress = document.querySelector('.scroll-progress');
